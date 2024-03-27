@@ -28,7 +28,8 @@ app.listen(PORT, () => {
             
             if(response.ok) {
                 const jsonData = await response.json();
-                if(previousVal === null || (jsonData.moistureSensor < 50 && (previousVal !== null && previousVal - jsonData.moistureSensor >= 5 ))) {
+                if(previousVal === null || (jsonData.moistureSensor < 50 && (previousVal !== null && previousVal - jsonData.moistureSensor >= 2 )) ||
+                (jsonData.moistureSensor < 50)) {
                     sendPush(jsonData.moistureSensor);
                 }
 
