@@ -28,8 +28,12 @@ app.listen(PORT, () => {
             
             if(response.ok) {
                 const jsonData = await response.json();
-                if(previousVal === null || (jsonData.moistureSensor < 50 && (previousVal !== null && previousVal - jsonData.moistureSensor >= 2 )) ||
-                (jsonData.moistureSensor < 20)) {
+                if(previousVal === null || (jsonData.moistureSensor < 60 && (previousVal !== null && previousVal - jsonData.moistureSensor >= 2 )) ||
+                (jsonData.moistureSensor < 30)) {
+                    sendPush(jsonData.moistureSensor);
+                }
+
+                if((jsonData.moistureSensor > 65 && (previousVal !== null && jsonData.moistureSensor - previousVal  >= 2 ))) {
                     sendPush(jsonData.moistureSensor);
                 }
 
@@ -59,7 +63,7 @@ const sendPush = (moistureSensor) => {
                 appId: 20386,
                 appToken: "qkdzwVG8foXdGwb8b1Z5Wf",
                 title: "Irrigation required",
-                body: `Moisture is getting low: ${moistureSensor}`,
+                body: moistureSensor < 60 ? `Moisture is getting low: ${moistureSensor}` : `Moisture is Normal: ${moistureSensor}`,
                 dateSent: formattedDate,
                 // pushData: { yourProperty: "yourPropertyValue" },
                 // bigPictureURL: ""
