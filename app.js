@@ -62,7 +62,7 @@ const sendPush = (moistureSensor) => {
           body: JSON.stringify( {
                 appId: 20386,
                 appToken: "qkdzwVG8foXdGwb8b1Z5Wf",
-                title: "Irrigation required",
+                title: moistureSensor < 60 ? "Irrigation required!" : "Cool condition",
                 body: moistureSensor < 60 ? `Moisture is getting low: ${moistureSensor}` : `Moisture is Normal: ${moistureSensor}`,
                 dateSent: formattedDate,
                 // pushData: { yourProperty: "yourPropertyValue" },
