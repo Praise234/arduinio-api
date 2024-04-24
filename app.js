@@ -65,7 +65,7 @@ const sendPush = (moistureSensor) => {
     body: JSON.stringify({
       appId: 20386,
       appToken: "qkdzwVG8foXdGwb8b1Z5Wf",
-      title: moistureSensor < 60 ? "Irrigation required!" : "Stop Irrigation",
+      title: moistureSensor < 60 ? "Irrigation required!" : "Stop Irrigation!",
       body:
         moistureSensor < 60
           ? `Moisture is getting low: ${moistureSensor}`
