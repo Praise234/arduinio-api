@@ -87,7 +87,7 @@ const sendPush = (moistureSensor) => {
 };
 
 // Set an interval to periodically check the data
-const interval = setInterval(() => getMoisture(), 180000); // Check every minute, adjust as needed
+const interval = setInterval(() => getMoisture(), 180000); 
 
 // Optionally, you can add a signal handler to stop the script gracefully
 // process.on("SIGINT", () => {
