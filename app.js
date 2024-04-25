@@ -90,8 +90,8 @@ const sendPush = (moistureSensor) => {
 const interval = setInterval(getMoisture, 60000); // Check every minute, adjust as needed
 
 // Optionally, you can add a signal handler to stop the script gracefully
-process.on("SIGINT", () => {
-  clearInterval(interval);
-  console.log("Script stopped gracefully");
-  process.exit(0);
-});
+// process.on("SIGINT", () => {
+//   clearInterval(interval);
+//   console.log("Script stopped gracefully");
+//   process.exit(0);
+// });
