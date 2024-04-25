@@ -63,8 +63,8 @@ const sendPush = (moistureSensor) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      appId: 20386,
-      appToken: "qkdzwVG8foXdGwb8b1Z5Wf",
+      appId: 20969,
+      appToken: "Dr58q5ID2s9p5g047MihFX",
       title: moistureSensor < 60 ? "Irrigation required!" : "Stop Irrigation!",
       body:
         moistureSensor < 60
@@ -87,7 +87,7 @@ const sendPush = (moistureSensor) => {
 };
 
 // Set an interval to periodically check the data
-const interval = setInterval(getMoisture, 60000); // Check every minute, adjust as needed
+const interval = setInterval(() => getMoisture(), 60000); // Check every minute, adjust as needed
 
 // Optionally, you can add a signal handler to stop the script gracefully
 // process.on("SIGINT", () => {
